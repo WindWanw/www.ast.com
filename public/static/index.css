@@ -1,0 +1,86 @@
+@keyframes windmill-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#windmill {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+}
+
+#windmill .pillar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    width: 5px;
+    border-width: 0 4px 80px 4px;
+    border-style: none solid solid;
+    border-color: transparent transparent white;
+}
+
+.windmill-top {
+    position: absolute;
+    left: 25%;
+    transform: translate(-50%, 50%);
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    /* background-color: #a5cad6; */
+    animation: windmill-rotate 3s linear infinite;
+}
+
+#windmill .windmill-top .shaft {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border: 4px #fff solid;
+    background: #a5cad6;
+    border-radius: 8px;
+
+}
+
+#windmill .windmill-top div[class^="fan"] {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 0;
+    width: 2px;
+    border-width: 50px 2px 0px 2px;
+    border-style: solid solid none;
+    border-color: white transparent transparent;
+    transform-origin: 0 0;
+}
+
+#windmill .windmill-top .fan-1 {
+
+    transform: rotateZ(180deg);
+}
+
+#windmill .windmill-top .fan-2 {
+
+    transform: rotateZ(-60deg);
+}
+
+#windmill .windmill-top .fan-3 {
+
+    transform: rotateZ(60deg);
+}
+
+.time-1 .windmill-top {
+    animation: windmill-rotate 1s linear infinite;
+}
+
+.time-2 .windmill-top {
+    animation: windmill-rotate 2s linear infinite;
+}

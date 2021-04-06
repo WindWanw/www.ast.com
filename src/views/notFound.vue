@@ -1,5 +1,5 @@
 <template>
-  <div id="class"></div>
+  <div id="class">404</div>
 </template>
 
 <script>
