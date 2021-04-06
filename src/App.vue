@@ -32,4 +32,7 @@ html,
   text-align: center;
   color: #2c3e50;
 }
+.iconfont{
+  margin: 0 7px;
+}
 </style>
