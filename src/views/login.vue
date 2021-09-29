@@ -11,16 +11,16 @@
       </el-radio-group>
     </div>
     <div v-if="type == 1">
-      <spring></spring>
+      <spring @login="login"></spring>
     </div>
     <div v-else-if="type == 2">
-      <summer></summer>
+      <summer @login="login"></summer>
     </div>
     <div v-else-if="type == 3">
-      <autumn></autumn>
+      <autumn @login="login"></autumn>
     </div>
     <div v-else>
-      <winter></winter>
+      <winter @login="login"></winter>
     </div>
   </div>
 </template>
@@ -57,6 +57,8 @@ export default {
           title: "冬",
         },
       ],
+
+      url: "",
     };
   },
   components: { Spring, Summer, Autumn, Winter },
@@ -95,9 +97,27 @@ export default {
         this._getLoginType();
       }
     },
+
+    login() {
+      this.$router.replace(this.url);
+    },
+
+    //跳转路由
+    routerPush() {
+      this.url = this.$route.query.redirect || "/home";
+
+      if (this.$func.getCache("token")) {
+        this.$router.replace(this.url);
+      }
+    },
+
+    _run() {
+      this.routerPush();
+      this.getLoginType();
+    },
   },
   created() {
-    this.getLoginType();
+    this._run();
   },
 };
 </script>

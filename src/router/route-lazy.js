@@ -7,9 +7,15 @@ const layout = () => import('../views/layout.vue');
 //首页
 const home = () => import('@/views/home.vue')
 
+
+
+//原神抽卡分析
+const index = () => import('@/views/index/home/originalGod.vue')
+
 export default {
     login,
     notFound,
     layout,
-    home
+    home,
+    index
 }

@@ -5,8 +5,8 @@ import asyRouter from './route-asy'
 //配置路由和组件之间的应用关系
 const routes = [{
         path: '/',
-        name: 'login',
-        component: route.login
+        name: 'index',
+        component: route.index
     },
     {
         path: '/login',

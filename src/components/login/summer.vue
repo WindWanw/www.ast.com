@@ -63,7 +63,9 @@ export default {
     };
   },
   methods: {
-    onSubmit() {},
+    onSubmit() {
+      this.$emit("login", this.form);
+    },
   },
   created() {},
 };

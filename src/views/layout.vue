@@ -1,20 +1,27 @@
 <template>
   <div id="layout">
     <div id="header">
-      <Header></Header>
+      <Header
+        @getAsideCollapse="getAsideCollapse"
+        :isCollapse="isCollapse"
+      ></Header>
     </div>
     <div id="main">
       <div id="aside">
-        <Aside></Aside>
+        <Aside :isCollapse="isCollapse"></Aside>
       </div>
       <div id="content">
         <div id="content-menu">
           <Menu></Menu>
         </div>
-        <div id="content-main">1</div>
+        <div id="content-main">
+          <router-view></router-view>
+        </div>
       </div>
     </div>
-    <div id="footer">底部</div>
+    <div id="footer">
+      <div class="footer">Astrology-占星 @author：ww 后台管理系统</div>
+    </div>
   </div>
 </template>
 
@@ -24,10 +31,17 @@ import Aside from "@/components/layout/aside";
 import Menu from "@/components/layout/menu";
 export default {
   data() {
-    return {};
+    return {
+      isCollapse: false,
+      avatar: "",
+    };
   },
   components: { Header, Aside, Menu },
-  methods: {},
+  methods: {
+    getAsideCollapse() {
+      this.isCollapse = !this.isCollapse;
+    },
+  },
   created() {},
 };
 </script>
@@ -38,16 +52,54 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  min-width: 1024px;
+  background-color: #efeef3;
+  /* min-width: 1024px; */
 }
 
 #header {
+  min-height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  font-size: 14px;
 }
 #main {
   flex: 1;
   display: flex;
 }
+#aside {
+  background-color: #545c64;
+}
 #content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#content-menu,
+#content-main {
+  background-color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+#content-main {
+  margin:20px;
+  flex: 1;
+}
+
+#footer {
+  min-height: 40px;
+  line-height: 40px;
+  color: #fff;
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(44, 51, 61);
 }
 </style>

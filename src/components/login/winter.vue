@@ -65,6 +65,11 @@ export default {
       },
     };
   },
+  methods: {
+    onSubmit() {
+      this.$emit("login", this.form);
+    },
+  },
 };
 </script>
 
@@ -91,7 +96,7 @@ export default {
 .center > div {
   position: absolute;
   background-color: rgba(209, 231, 252, 0.8);
-  padding:10px;
+  padding: 10px;
   border-radius: 5px;
 }
 

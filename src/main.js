@@ -14,6 +14,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+//请求axios
+import api from './api/api';
+Vue.prototype.$api = api;
+
 //表单自定义验证
 import rules from './common/rules'
 Vue.prototype.$rules = rules;
@@ -25,6 +29,11 @@ Vue.prototype.$func = common;
 //注册全局过滤器
 import filters from './common/filter';
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]));
+
+
+//全局测试组件
+import asTest from './components/asTest.vue';
+Vue.component("asTest", asTest);
 
 
 
